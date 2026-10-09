@@ -1,0 +1,107 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #0B1F2A;
+  --color-ink-card: #0F2736;
+  --color-ink-border: #1E3A47;
+  --color-gold-start: #FDE047;
+  --color-gold-end: #F59E0B;
+  --color-amber-accent: #D97706;
+  --color-muted: #5B7280;
+  --color-offwhite: #F8FAFC;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--color-ink);
+    background-color: var(--color-offwhite);
+    letter-spacing: -0.011em;
+  }
+
+  /* Accessibility: Visible focus outline */
+  :focus-visible {
+    outline: 2px solid var(--color-amber-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* Background Grids & Patterns */
+.bg-tech-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(30, 58, 71, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 58, 71, 0.25) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.bg-tech-grid-light {
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dots-light {
+  background-image: radial-gradient(rgba(203, 213, 225, 0.7) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Gold Gradient Utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%);
+}
+
+/* Subtle glow effects */
+.glow-amber-sm {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.15);
+}
+
+.glow-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(11, 31, 42, 0.08), 0 0 0 1px rgba(217, 119, 6, 0.15);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1F2A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E3A47;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #274859;
+}
