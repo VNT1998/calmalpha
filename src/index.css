@@ -105,3 +105,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #274859;
 }
+
+/* Suppress Netlify Injected Badge & Collaborative Drawer */
+#netlify-preview-drawer,
+iframe#netlify-preview-drawer,
+[data-netlify-drawer],
+.netlify-badge,
+div[data-netlify-deploy-preview],
+netlify-cdp-root {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
