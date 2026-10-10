@@ -82,11 +82,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#5B7280]">
           <div>
-            © {currentYear} {content.footer.companyName}. All rights reserved. {content.footer.city}.
+            © {currentYear} {content.footer.companyName}. All rights reserved.
           </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Systems operational • Mumbai, India</span>
+          <div>
+            <span>{content.footer.city}</span>
           </div>
         </div>
       </div>

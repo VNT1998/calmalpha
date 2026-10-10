@@ -72,9 +72,6 @@ export function Technology() {
                 <h3 className="text-base font-bold text-[#0B1F2A]">
                   {technology.note.title}.
                 </h3>
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-medium bg-[#0B1F2A] text-amber-300">
-                  Claude Code Verified
-                </span>
               </div>
               <p className="text-sm sm:text-base text-[#5B7280] leading-relaxed max-w-4xl">
                 {technology.note.text}

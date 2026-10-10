@@ -120,7 +120,7 @@ export const content = {
       badge: 'Flagship Project Showcase',
       name: 'OpsPilot AI',
       subtitle: 'Enterprise Document & Operational Workflow Agent Platform',
-      status: 'In active development • Open Core',
+      status: 'In active development • Open source (MIT)',
       repoUrl: 'https://github.com/VNT1998/opspilot-ai',
       overview:
         'Accounts Payable (AP) and Purchase Order (PO) invoice automation serves as the primary reference workflow, demonstrating how modern agentic AI can be safely deployed inside mission-critical business environments.',
@@ -141,7 +141,7 @@ export const content = {
         {
           title: 'Human-in-the-Loop',
           description:
-            'Automated straight-through processing for high-confidence documents; automatic escalation to an approval console whenever tolerances or tolerances mismatch.',
+            'Automated straight-through processing for high-confidence documents; automatic escalation to an approval console whenever amounts or tolerances don\'t match.',
         },
       ],
       stack: [
@@ -157,7 +157,7 @@ export const content = {
         {
           id: 'review-console',
           title: 'Review Console',
-          caption: 'Human-in-the-loop review interface showing token-level bounding box provenance and field approvals.',
+          caption: 'Human-in-the-loop review interface showing document evidence alongside extracted fields and approvals.',
           imageSrc: '/projects/opspilot/review_console.webp',
         },
         {
@@ -197,7 +197,7 @@ export const content = {
           title: 'AI agents and automation',
           description:
             'Multi-step agents that plan, use tools and hand off to people when it matters, built with explicit state so behaviour is traceable and testable.',
-          deliverables: ['LangGraph state machines', 'Tool execution sandboxes', 'Human escalation gates'],
+          deliverables: ['LangGraph state machines', 'Human escalation gates'],
         },
         {
           id: 'voice-conversational',
@@ -350,7 +350,7 @@ export const content = {
           id: 'better-life',
           name: 'BetterLife',
           description:
-            'Clinical evidence intelligence and laboratory blood report analysis platform with interactive clinical follow-up Q&A.',
+            'Clinical evidence intelligence and laboratory blood report analysis platform with interactive clinical follow-up Q&A. Informational only, not medical advice.',
           statusBadge: 'In development',
           repoUrl: 'https://github.com/VNT1998/better-life',
         },

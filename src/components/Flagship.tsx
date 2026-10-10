@@ -77,7 +77,7 @@ export function Flagship() {
 
             <div className="ml-auto hidden md:flex items-center gap-2 text-xs font-mono text-[#8CA1AF]">
               <Eye className="w-3.5 h-3.5 text-amber-400" />
-              <span>Production UI Verification</span>
+              <span>Product screenshots</span>
             </div>
           </div>
 
