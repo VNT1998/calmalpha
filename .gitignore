@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.prerender-temp/
 .DS_Store
 .npmrc
 .npm-cache/
