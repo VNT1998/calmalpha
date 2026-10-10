@@ -1,4 +1,4 @@
-import { ArrowRight, MessageSquare, Terminal, ShieldCheck, GitFork, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, MessageSquare, Terminal, ShieldCheck, GitFork, ArrowUpRight } from 'lucide-react';
 import { content } from '../content';
 
 export function Hero() {
@@ -26,16 +26,16 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
             </span>
-            <span>Software &amp; AI Solutions Studio • Mumbai, India</span>
+            <span>{hero.eyebrow}</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-            Calm, decisive <span className="gold-gradient-text">AI.</span>
+            We build AI systems that make complex work <span className="gold-gradient-text">simpler.</span>
           </h1>
 
           {/* Subhead */}
-          <p className="mt-8 text-lg sm:text-xl text-[#8CA1AF] max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="mt-8 text-lg sm:text-xl text-[#8CA1AF] max-w-3xl mx-auto leading-relaxed font-normal">
             {hero.subhead}
           </p>
 
@@ -58,64 +58,95 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Architectural Overview Console (Makes the hero rich, modern, and concrete) */}
+        {/* Technical Architecture Panel (Addressed per Audit Section 4) */}
         <div className="mt-16 sm:mt-20 max-w-4xl mx-auto">
           <div className="rounded-2xl border border-[#1E3A47] bg-[#07161F]/90 backdrop-blur-xl shadow-2xl overflow-hidden">
-            {/* Terminal Window Chrome */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-[#1E3A47] bg-[#0B1F2A]/80">
-              <div className="flex items-center space-x-2">
+            {/* Human-readable window title */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between px-5 py-3.5 border-b border-[#1E3A47] bg-[#0B1F2A]/90 gap-2">
+              <div className="flex items-center space-x-2.5">
                 <div className="w-3 h-3 rounded-full bg-rose-500/80" />
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                <span className="ml-3 font-mono text-xs text-[#8CA1AF]">
-                  calmalpha // architectural-invariants.config
+                <span className="font-semibold text-xs text-white ml-2 tracking-wide">
+                  How we design reliable AI workflows
+                </span>
+                <span className="hidden md:inline font-mono text-[11px] text-[#5B7280]">
+                  // architecture-invariants
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
-                <CheckCircle2 className="w-3 h-3" />
-                <span>Deterministic Core</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-mono text-amber-300 bg-[#132B3A] px-2.5 py-0.5 rounded border border-[#1E3A47]">
+                  Stateful &amp; Traceable
+                </span>
               </div>
             </div>
 
-            {/* Invariants Grid */}
+            {/* Invariants Grid with Grounded Explanations & Links */}
             <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex flex-col space-y-2 p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
-                <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
-                  <GitFork className="w-4 h-4" />
-                  <span>Explicit State</span>
+              <div className="flex flex-col justify-between p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
+                    <GitFork className="w-4 h-4" />
+                    <span>Explicit State</span>
+                  </div>
+                  <h4 className="text-white font-medium text-sm">
+                    Deterministic State Machines
+                  </h4>
+                  <p className="text-xs text-[#8CA1AF] leading-relaxed">
+                    LangGraph state machines where transitions, database mutations, and tool schemas are enforced in deterministic code.
+                  </p>
                 </div>
-                <h4 className="text-white font-medium text-sm">
-                  Traceable Workflows
-                </h4>
-                <p className="text-xs text-[#8CA1AF] leading-relaxed">
-                  LangGraph state machines where every step, tool call, and failure branch is explicit and testable.
-                </p>
+                <a
+                  href="#flagship"
+                  className="mt-4 inline-flex items-center gap-1 text-[11px] font-medium text-amber-400 hover:underline"
+                >
+                  <span>See OpsPilot pipeline</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
 
-              <div className="flex flex-col space-y-2 p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
-                <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
-                  <Terminal className="w-4 h-4" />
-                  <span>Cost Routing</span>
+              <div className="flex flex-col justify-between p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
+                    <Terminal className="w-4 h-4" />
+                    <span>Design Principle</span>
+                  </div>
+                  <h4 className="text-white font-medium text-sm">
+                    Cost &amp; Model Routing
+                  </h4>
+                  <p className="text-xs text-[#8CA1AF] leading-relaxed">
+                    Fast models handle structured extraction; high-reasoning frontier models are reserved for complex ambiguity.
+                  </p>
                 </div>
-                <h4 className="text-white font-medium text-sm">
-                  Efficient Model Dispatch
-                </h4>
-                <p className="text-xs text-[#8CA1AF] leading-relaxed">
-                  Fast models handle structural tasks; frontier models are reserved strictly for high-reasoning workloads.
-                </p>
+                <a
+                  href="#technology"
+                  className="mt-4 inline-flex items-center gap-1 text-[11px] font-medium text-amber-400 hover:underline"
+                >
+                  <span>View routing stack</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
 
-              <div className="flex flex-col space-y-2 p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
-                <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>Human Oversight</span>
+              <div className="flex flex-col justify-between p-4 rounded-xl bg-[#0B1F2A]/60 border border-[#1E3A47]/60">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-amber-400 font-semibold text-xs tracking-wider uppercase">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>Human in the Loop</span>
+                  </div>
+                  <h4 className="text-white font-medium text-sm">
+                    Safety &amp; Approval Gates
+                  </h4>
+                  <p className="text-xs text-[#8CA1AF] leading-relaxed">
+                    Automated processing for verified matches; immediate human review routing whenever tolerances or math fail checks.
+                  </p>
                 </div>
-                <h4 className="text-white font-medium text-sm">
-                  Defined Escalation
-                </h4>
-                <p className="text-xs text-[#8CA1AF] leading-relaxed">
-                  Safety gates and human-in-the-loop triggers for consequential business actions and irreversible operations.
-                </p>
+                <a
+                  href="#flagship"
+                  className="mt-4 inline-flex items-center gap-1 text-[11px] font-medium text-amber-400 hover:underline"
+                >
+                  <span>View review console</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
             </div>
           </div>

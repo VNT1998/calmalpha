@@ -1,5 +1,6 @@
 import { Seo } from '../components/Seo';
 import { Hero } from '../components/Hero';
+import { Flagship } from '../components/Flagship';
 import { Services } from '../components/Services';
 import { Process } from '../components/Process';
 import { Technology } from '../components/Technology';
@@ -17,6 +18,7 @@ export function Home() {
     <>
       <Seo title={meta.title} description={meta.description} />
       <Hero />
+      <Flagship />
       <Services />
       <Process />
       <Technology />

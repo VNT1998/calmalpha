@@ -1,10 +1,9 @@
-import { Code2, Bot, Mic, Database, Compass, Cloud } from 'lucide-react';
+import { Code2, Bot, Mic, Database, Compass, Cloud, Check } from 'lucide-react';
 import { content } from '../content';
 
 export function Services() {
   const { services } = content.home;
 
-  // Icon mapping for the 6 core services
   const icons = [
     <Code2 className="w-5 h-5 text-[#D97706]" />,
     <Bot className="w-5 h-5 text-[#D97706]" />,
@@ -14,7 +13,6 @@ export function Services() {
     <Cloud className="w-5 h-5 text-[#D97706]" />,
   ];
 
-  // Specific architectural tags matching the technology stack in CONTENT.md
   const cardTags: Record<string, string[]> = {
     'custom-software': ['Web Applications', 'REST APIs', 'Full-Stack Architecture'],
     'ai-agents': ['LangGraph', 'Explicit State', 'Tool Use & Handoff'],
@@ -33,7 +31,7 @@ export function Services() {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-semibold tracking-wider uppercase bg-amber-50 text-[#D97706] border border-amber-200/80 mb-4">
-            Practice Areas
+            Practice Areas &amp; Deliverables
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0B1F2A]">
             {services.sectionTitle}
@@ -54,7 +52,7 @@ export function Services() {
                 className="group relative p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  {/* Card Header: Icon container & Number */}
+                  {/* Card Header */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200/60 group-hover:bg-amber-100/80 transition-colors">
                       {icons[index]}
@@ -71,6 +69,23 @@ export function Services() {
                   <p className="mt-3.5 text-sm sm:text-base text-[#5B7280] leading-relaxed">
                     {service.description}
                   </p>
+
+                  {/* Concrete Deliverables per Audit Section 6 */}
+                  {service.deliverables && service.deliverables.length > 0 && (
+                    <div className="mt-5 space-y-1.5">
+                      <span className="text-[11px] font-bold text-[#0B1F2A] uppercase tracking-wider block">
+                        Deliverables:
+                      </span>
+                      <ul className="space-y-1 text-xs text-[#5B7280]">
+                        {service.deliverables.map((d) => (
+                          <li key={d} className="flex items-center gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 {/* Capability Tags */}

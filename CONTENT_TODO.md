@@ -6,63 +6,38 @@ Run the automated verification script at any time:
 ```bash
 npm run check:content
 ```
-This script will exit with an error code and list any remaining unresolved tokens until every item below is fulfilled.
 
 ---
 
-## 1. Resolved Tokens (Extracted Automatically)
+## 1. Resolved Tokens
 
-The following tokens were extracted from existing portfolio source code according to **Rule 2** in `PLAN.md`:
+The following tokens have been resolved with verifiable facts from the project's source code and active GitHub repositories:
 
 | Item | Status | Resolved Value | Source Location |
 | :--- | :--- | :--- | :--- |
-| **Founder LinkedIn URL** | ✅ Resolved | `https://linkedin.com/in/vinitkarkera` | Extracted from `portfolio-new` source |
-| **Founder Photo** | ✅ Resolved | `/founder.webp` (WebP, 600px wide, ~30KB) | Generated from `portfolio-new/public/vinit-portrait.jpg` |
+| **Founder LinkedIn URL** | ✅ Resolved | `https://linkedin.com/in/vinitkarkera` | Extracted from personal portfolio |
+| **Founder Photo** | ✅ Resolved | `/founder.webp` (WebP, 600px wide, ~30KB) | Generated from `vinit-portrait.jpg` |
+| **OpsPilot Description** | ✅ Resolved | `Enterprise document and operational workflow agent platform for accounts payable and invoice automation...` | Extracted from `VNT1998/opspilot-ai` README |
+| **Nuvorix Description** | ✅ Resolved | `Self-service production platform for building, evaluating, deploying, and operating ML and LLM workloads.` | Extracted from `VNT1998/nuvorix` README |
+| **BetterLife Description** | ✅ Resolved | `Clinical evidence intelligence and laboratory blood report analysis platform with interactive follow-up Q&A.` | Extracted from `VNT1998/better-life` README |
 
 ---
 
 ## 2. Open Tokens (Action Required)
 
-The following 4 items in `src/content.ts` are currently awaiting confirmation:
+Only **1 item** in `src/content.ts` remains pending:
 
-### 1. OpsPilot — One-Line Description
-- **File:** [`src/content.ts`](file:///Users/vinitkarkera/Documents/projects/calmalpha/src/content.ts)
-- **Token:** `{{CONFIRM: one-line description}}`
-- **Location:** `content.home.lab.projects[0].description` (Repo: `https://github.com/VNT1998/opspilot-ai`)
-- **What is needed:** A single concise sentence summarizing OpsPilot.
-- **Suggested value from repository:**  
-  `Enterprise-grade document and operational workflow agent platform for accounts payable and invoice automation.`
-- **Gating Rule Impact:** Under PLAN.md gating rules, this project card is hidden in production until this token is replaced with a confirmed description.
-
-### 2. Nuvorix — One-Line Description
-- **File:** [`src/content.ts`](file:///Users/vinitkarkera/Documents/projects/calmalpha/src/content.ts)
-- **Token:** `{{CONFIRM: one-line description}}`
-- **Location:** `content.home.lab.projects[1].description` (Repo: `https://github.com/VNT1998/nuvorix`)
-- **What is needed:** A single concise sentence summarizing Nuvorix.
-- **Suggested value from repository:**  
-  `Self-service production platform for building, evaluating, deploying, and operating ML and LLM workloads.`
-- **Gating Rule Impact:** Hidden in production until confirmed.
-
-### 3. BetterLife — One-Line Description
-- **File:** [`src/content.ts`](file:///Users/vinitkarkera/Documents/projects/calmalpha/src/content.ts)
-- **Token:** `{{CONFIRM: one-line description}}`
-- **Location:** `content.home.lab.projects[2].description` (Repo: `https://github.com/VNT1998/better-life`)
-- **What is needed:** A single concise sentence summarizing BetterLife.
-- **Suggested value from repository:**  
-  `Clinical evidence intelligence and laboratory blood report analysis platform with interactive follow-up Q&A.`
-- **Gating Rule Impact:** Hidden in production until confirmed.
-
-### 4. Legal Status
+### 1. Legal Status
 - **File:** [`src/content.ts`](file:///Users/vinitkarkera/Documents/projects/calmalpha/src/content.ts)
 - **Token:** `{{CONFIRM: add once registered}}`
 - **Location:** `content.home.companyFacts.facts[4].value`
-- **What is needed:** Official registered entity designation (e.g. `Sole Proprietorship`, `Private Limited`, `LLP`, or registration number) once formalized.
-- **Omit-If-Empty Rule Impact:** Per PLAN.md, this row is completely omitted from the Company facts table in production until registered and populated.
+- **What is needed:** Official registered entity designation (e.g. `Sole Proprietorship`, `Private Limited`, `LLP`, or registration number) once formal registration is complete.
+- **Omit-If-Empty Rule Impact:** Per `PLAN.md`, this row is automatically omitted from the Company facts registry table in production builds, ensuring zero broken placeholders or unverified claims are visible to public visitors.
 
 ---
 
 ## How to Resolve
 
 1. Open [`src/content.ts`](file:///Users/vinitkarkera/Documents/projects/calmalpha/src/content.ts).
-2. Replace the `{{CONFIRM: ...}}` string with the confirmed copy.
+2. Replace `'{{CONFIRM: add once registered}}'` with the registered entity type (e.g. `'Private Limited'` or `'LLP'`).
 3. Run `npm run check:content` to verify that 0 unresolved tokens remain.

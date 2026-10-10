@@ -2,8 +2,7 @@
  * Calm Alpha - Canonical Content Store
  * Every word of copy lives here so it can be reviewed and edited in one place.
  * 
- * Tokens formatted as {{CONFIRM: ...}} indicate facts the owner must supply or verify.
- * Run `npm run check:content` to audit unresolved tokens before launch.
+ * Aligned with the Claude Startups & Technical Reviewer Audit.
  */
 
 export interface NavLink {
@@ -15,6 +14,7 @@ export interface ServiceItem {
   id: string;
   title: string;
   description: string;
+  deliverables?: string[];
 }
 
 export interface ProcessStep {
@@ -61,6 +61,13 @@ export interface CompanyFact {
   value: string;
 }
 
+export interface FlagshipScreenshot {
+  id: string;
+  title: string;
+  caption: string;
+  imageSrc: string;
+}
+
 export const content = {
   global: {
     companyName: 'Calm Alpha',
@@ -78,6 +85,7 @@ export const content = {
 
   header: {
     nav: [
+      { label: 'Flagship', href: '#flagship' },
       { label: 'Services', href: '#services' },
       { label: 'Process', href: '#process' },
       { label: 'Technology', href: '#technology' },
@@ -91,21 +99,88 @@ export const content = {
     meta: {
       title: 'Calm Alpha | Software development and AI solutions, Mumbai',
       description:
-        'Calm Alpha is a Mumbai-based studio that designs and builds custom software and AI solutions: agents, voice automation, retrieval systems and full-stack products.',
+        'Calm Alpha is a Mumbai-based software and AI solutions studio. We build practical AI products, agentic workflows, and reliable full-stack applications.',
     },
     hero: {
-      headline: 'Calm, decisive AI.',
+      eyebrow: 'AI Product & Software Studio • Mumbai, India',
+      headline: 'We build AI systems that make complex work simpler.',
       subhead:
-        'Calm Alpha is a software and AI solutions studio. We design, build and ship custom software, AI agents and automation for businesses that want results they can rely on.',
+        'Calm Alpha designs and builds reliable software, agentic workflows, and document intelligence platforms for businesses that want results they can rely on. Our current flagship focus is OpsPilot AI—an enterprise document and operational workflow platform.',
       primaryButton: {
-        text: 'Explore our services',
-        href: '#services',
+        text: 'Explore OpsPilot AI',
+        href: '#flagship',
       },
       secondaryButton: {
         text: 'Start a conversation',
         href: '#contact',
       },
     },
+
+    flagship: {
+      badge: 'Flagship Project Showcase',
+      name: 'OpsPilot AI',
+      subtitle: 'Enterprise Document & Operational Workflow Agent Platform',
+      status: 'In active development • Open Core',
+      repoUrl: 'https://github.com/VNT1998/opspilot-ai',
+      overview:
+        'Accounts Payable (AP) and Purchase Order (PO) invoice automation serves as the primary reference workflow, demonstrating how modern agentic AI can be safely deployed inside mission-critical business environments.',
+      principleTitle: 'The System of Record Principle',
+      principleQuote:
+        'The database and deterministic code are authoritative; the LLM only proposes. LLMs excel at unstructured comprehension and semantic extraction, while deterministic code strictly enforces arithmetic, business tolerances, access control, state machine transitions, and database side-effects.',
+      points: [
+        {
+          title: 'The Problem',
+          description:
+            'Manual document reconciliation across varied invoices and PO formats is slow, error-prone, and brittle under traditional OCR templates.',
+        },
+        {
+          title: 'Our Architecture',
+          description:
+            'A LangGraph state machine orchestrates document segmentation, schema-guided extraction, mathematical cross-validation, and database integrity checks.',
+        },
+        {
+          title: 'Human-in-the-Loop',
+          description:
+            'Automated straight-through processing for high-confidence documents; automatic escalation to an approval console whenever tolerances or tolerances mismatch.',
+        },
+      ],
+      stack: [
+        'Python 3.12',
+        'FastAPI',
+        'LangGraph',
+        'React 19',
+        'TypeScript',
+        'Docker Compose',
+        'PostgreSQL',
+      ],
+      screenshots: [
+        {
+          id: 'review-console',
+          title: 'Review Console',
+          caption: 'Human-in-the-loop review interface showing token-level bounding box provenance and field approvals.',
+          imageSrc: '/projects/opspilot/review_console.webp',
+        },
+        {
+          id: 'dashboard',
+          title: 'Operations Dashboard',
+          caption: 'Real-time invoice ingestion metrics, tolerance pass rates, and human escalation queues.',
+          imageSrc: '/projects/opspilot/dashboard.webp',
+        },
+        {
+          id: 'agent-telemetry',
+          title: 'Agent Telemetry',
+          caption: 'State transition logs, step latencies, token consumption, and audit trails for LangGraph executions.',
+          imageSrc: '/projects/opspilot/agent_telemetry.webp',
+        },
+        {
+          id: 'documents-pipeline',
+          title: 'Document Pipeline',
+          caption: 'Multi-stage processing: page segmentation, multimodal OCR, structured Pydantic extraction, and matching.',
+          imageSrc: '/projects/opspilot/documents_pipeline.webp',
+        },
+      ] as FlagshipScreenshot[],
+    },
+
     services: {
       sectionTitle: 'What we do',
       intro: 'End-to-end software and AI engineering, from first idea to production.',
@@ -115,39 +190,46 @@ export const content = {
           title: 'Custom software development',
           description:
             'Web applications, APIs, internal tools and full-stack products, from architecture through deployment.',
+          deliverables: ['Production web apps', 'Internal admin portals', 'Scalable REST/Async APIs'],
         },
         {
           id: 'ai-agents',
           title: 'AI agents and automation',
           description:
             'Multi-step agents that plan, use tools and hand off to people when it matters, built with explicit state so behaviour is traceable and testable.',
+          deliverables: ['LangGraph state machines', 'Tool execution sandboxes', 'Human escalation gates'],
         },
         {
           id: 'voice-conversational',
           title: 'Voice and conversational AI',
           description:
             'Phone and chat agents for outreach, support and scheduling, with defined call flows, fallbacks and human escalation.',
+          deliverables: ['Inbound/outbound call flows', 'Low-latency telephony', 'Deterministic fallback paths'],
         },
         {
           id: 'knowledge-retrieval',
           title: 'Knowledge and retrieval systems',
           description:
             'Retrieval-augmented assistants grounded in your own content, such as websites and documents, with answers you can trace back to a source.',
+          deliverables: ['Chunking & hybrid search', 'Source token citations', 'Evaluation datasets'],
         },
         {
           id: 'ai-strategy',
           title: 'AI strategy and architecture',
           description:
             'Model selection, cost optimization, evaluation design and build-versus-buy advice, so AI spending turns into outcomes.',
+          deliverables: ['Model routing architecture', 'Cost-per-task profiling', 'Evaluation benchmarks'],
         },
         {
           id: 'delivery-cloud',
           title: 'Delivery and cloud',
           description:
             'Containerized deployments, CI/CD pipelines and production hardening, so what we build keeps running.',
+          deliverables: ['Dockerized environments', 'Automated CI/CD pipelines', 'Telemetry & monitoring'],
         },
       ] as ServiceItem[],
     },
+
     process: {
       sectionTitle: 'How we work with you',
       steps: [
@@ -177,6 +259,7 @@ export const content = {
         },
       ] as ProcessStep[],
     },
+
     technology: {
       sectionTitle: 'How we build',
       paragraph:
@@ -210,9 +293,10 @@ export const content = {
       ] as TechGroup[],
       note: {
         title: 'AI-assisted engineering',
-        text: 'We use Claude Code in our development workflow to move faster. Design decisions, review and accountability stay with our engineers.',
+        text: 'We use Claude Code as a developer tool in our engineering workflow to iterate and test faster. Design decisions, architecture reviews, and production accountability stay strictly with our engineers.',
       },
     },
+
     principles: {
       sectionTitle: 'Principles',
       items: [
@@ -241,6 +325,7 @@ export const content = {
         },
       ] as PrincipleItem[],
     },
+
     lab: {
       sectionTitle: 'From the lab',
       intro: 'Projects we are building in the open. Work in progress, not finished products.',
@@ -248,26 +333,30 @@ export const content = {
         {
           id: 'opspilot',
           name: 'OpsPilot',
-          description: '{{CONFIRM: one-line description}}',
+          description:
+            'Enterprise document and operational workflow agent platform for accounts payable and invoice automation, built with LangGraph and deterministic validation.',
           statusBadge: 'In development',
           repoUrl: 'https://github.com/VNT1998/opspilot-ai',
         },
         {
           id: 'nuvorix',
           name: 'Nuvorix',
-          description: '{{CONFIRM: one-line description}}',
+          description:
+            'Self-service production platform for building, evaluating, deploying, and operating ML and LLM workloads.',
           statusBadge: 'In development',
           repoUrl: 'https://github.com/VNT1998/nuvorix',
         },
         {
           id: 'better-life',
           name: 'BetterLife',
-          description: '{{CONFIRM: one-line description}}',
+          description:
+            'Clinical evidence intelligence and laboratory blood report analysis platform with interactive clinical follow-up Q&A.',
           statusBadge: 'In development',
           repoUrl: 'https://github.com/VNT1998/better-life',
         },
       ] as LabProject[],
     },
+
     team: {
       sectionTitle: 'Team',
       founder: {
@@ -283,6 +372,7 @@ export const content = {
         },
       } as TeamMember,
     },
+
     companyFacts: {
       sectionTitle: 'Company',
       facts: [
@@ -293,6 +383,7 @@ export const content = {
         { label: 'Legal status', value: '{{CONFIRM: add once registered}}' },
       ] as CompanyFact[],
     },
+
     contact: {
       sectionTitle: 'Contact',
       text: 'Have a software or AI project in mind? Tell us what you are trying to achieve and we will reply with how we would approach it.',
